@@ -9,5 +9,5 @@ public interface PostMapper {
 
     Post toEntity(PostDto postDto);
 
-    PostDto toDto(Post blog);
+    PostDto toDto(Post post);
 }

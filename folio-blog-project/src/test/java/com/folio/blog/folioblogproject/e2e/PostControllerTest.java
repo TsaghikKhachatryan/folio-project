@@ -89,8 +89,8 @@ public class PostControllerTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.title").value("Title")) // Example assertion
-                .andExpect(MockMvcResultMatchers.jsonPath("$.content").value("Content")); // Example assertion
+                .andExpect(MockMvcResultMatchers.jsonPath("$.title").value("Title"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content").value("Content"));
     }
 
 

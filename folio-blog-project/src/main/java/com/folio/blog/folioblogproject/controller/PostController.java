@@ -3,7 +3,7 @@ package com.folio.blog.folioblogproject.controller;
 import com.folio.blog.folioblogproject.dto.PostDto;
 import com.folio.blog.folioblogproject.entity.Post;
 import com.folio.blog.folioblogproject.entity.Tag;
-import com.folio.blog.folioblogproject.repository.PageResponse;
+import com.folio.blog.folioblogproject.repository.pagination.Pagination;
 import com.folio.blog.folioblogproject.service.PostService;
 import com.folio.blog.folioblogproject.service.TagService;
 import jakarta.validation.Valid;
@@ -27,12 +27,12 @@ public class PostController {
     private final TagService tagService;
 
     @GetMapping
-    public ResponseEntity<PageResponse> getPosts(
+    public ResponseEntity<Pagination.PageResponse> getPosts(
             @RequestParam(required = false) Set<Long> tagIds,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {
         Set<Tag> tags = tagService.findTagsByIds(tagIds);
-        PageResponse posts = postService.getAllPosts(tags, PageRequest.of(page, size));
+        Pagination.PageResponse posts = postService.getAllPosts(tags, PageRequest.of(page, size));
         return ResponseEntity.ok(posts);
     }
 

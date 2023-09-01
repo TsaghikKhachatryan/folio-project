@@ -1,12 +1,10 @@
 package com.folio.blog.folioblogproject.exception.error;
 
-import lombok.Data;
 import org.springframework.http.HttpStatus;
 
 import java.util.Arrays;
 import java.util.List;
 
-@Data
 public class ApiError {
     private HttpStatus status;
     private String message;

@@ -1,4 +1,4 @@
-package com.folio.blog.folioblogproject.projecConfigs;
+package com.folio.blog.folioblogproject.configs;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

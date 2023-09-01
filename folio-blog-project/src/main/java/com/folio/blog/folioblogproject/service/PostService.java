@@ -4,9 +4,8 @@ import com.folio.blog.folioblogproject.dto.PostDto;
 import com.folio.blog.folioblogproject.entity.Post;
 import com.folio.blog.folioblogproject.entity.Tag;
 import com.folio.blog.folioblogproject.mapper.PostMapper;
-import com.folio.blog.folioblogproject.repository.PageDetails;
-import com.folio.blog.folioblogproject.repository.PageResponse;
 import com.folio.blog.folioblogproject.repository.PostRepository;
+import com.folio.blog.folioblogproject.repository.pagination.Pagination;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -26,7 +25,7 @@ public class PostService {
     private final PostRepository postRepository;
     private final PostMapper mapper;
 
-    public PageResponse getAllPosts(Set<Tag> tags, Pageable pageable) {
+    public Pagination.PageResponse getAllPosts(Set<Tag> tags, Pageable pageable) {
         log.info("Getting all Posts");
 
         Page<PostDto> postDtoPage;
@@ -36,8 +35,8 @@ public class PostService {
             postDtoPage = postRepository.findAll(pageable).map(mapper::toDto);
         }
 
-        return PageResponse.builder()
-                .page(PageDetails.builder()
+        return Pagination.PageResponse.builder()
+                .page(Pagination.PageDetails.builder()
                         .size(postDtoPage.getSize())
                         .totalElements(postDtoPage.getTotalElements())
                         .totalPages(postDtoPage.getTotalPages())
