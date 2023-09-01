@@ -45,8 +45,8 @@ public class PostController {
     }
 
     @PostMapping
-    public ResponseEntity<PostDto> createPost(@Valid @RequestBody Post post) {
-        PostDto savedPost = postService.createPost(post);
+    public ResponseEntity<PostDto> createPost(@Valid @RequestBody PostDto postDto) {
+        PostDto savedPost = postService.createPost(postDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedPost);
     }
 
