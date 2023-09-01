@@ -24,3 +24,8 @@ To launch the Spring Boot application, follow these steps:
 For detailed API documentation and testing, you can access the Swagger UI by clicking on the following link: 
 
 http://localhost:8080/swagger-ui/index.html#/
+
+#### H2 DataBase Console
+For testing, you can access the H2 DataBase Console by clicking on the following link:
+
+http://localhost:8080/h2-console/

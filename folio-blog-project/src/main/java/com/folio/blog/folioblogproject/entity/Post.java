@@ -15,7 +15,7 @@ import java.util.Set;
 @EqualsAndHashCode
 @NamedNativeQuery(
         name = "Post.findByTags",
-        query = "SELECT * FROM post p WHERE :tags IS NULL OR p.id IN (SELECT pt.post_id FROM post_tag pt WHERE pt.tag_id IN :tags)",
+        query = "SELECT * FROM post p WHERE :tags IS NULL OR p.id IN (SELECT pt.post_id FROM post_tag pt WHERE pt.tag_id IN (:tags))",
         resultClass = Post.class
 )
 public class Post {

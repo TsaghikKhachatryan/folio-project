@@ -27,7 +27,6 @@ public class PostController {
     private final TagService tagService;
 
     @GetMapping
-    //todo add swagger
     public ResponseEntity<PageResponse> getPosts(
             @RequestParam(required = false) Set<Long> tagIds,
             @RequestParam(defaultValue = "0") int page,
