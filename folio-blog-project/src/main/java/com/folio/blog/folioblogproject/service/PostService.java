@@ -50,8 +50,9 @@ public class PostService {
         return postRepository.findById(id);
     }
 
-    public PostDto createPost(Post post) {
-        log.info("Creating Post: {}", post);
+    public PostDto createPost(PostDto postDto) {
+        log.info("Creating Post: {}", postDto);
+        Post post = mapper.toEntity(postDto);
         return mapper.toDto(postRepository.save(post));
     }
 

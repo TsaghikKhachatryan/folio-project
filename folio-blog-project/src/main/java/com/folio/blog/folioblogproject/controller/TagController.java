@@ -1,7 +1,6 @@
 package com.folio.blog.folioblogproject.controller;
 
 import com.folio.blog.folioblogproject.dto.TagDto;
-import com.folio.blog.folioblogproject.entity.Tag;
 import com.folio.blog.folioblogproject.service.TagService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

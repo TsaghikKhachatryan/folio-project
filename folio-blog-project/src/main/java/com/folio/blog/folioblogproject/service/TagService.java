@@ -2,7 +2,6 @@ package com.folio.blog.folioblogproject.service;
 
 import com.folio.blog.folioblogproject.dto.TagDto;
 import com.folio.blog.folioblogproject.entity.Tag;
-import com.folio.blog.folioblogproject.mapper.PostMapper;
 import com.folio.blog.folioblogproject.mapper.TagMapper;
 import com.folio.blog.folioblogproject.repository.TagRepository;
 import lombok.RequiredArgsConstructor;
