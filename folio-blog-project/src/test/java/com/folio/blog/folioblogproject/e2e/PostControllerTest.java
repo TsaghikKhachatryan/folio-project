@@ -82,7 +82,7 @@ public class PostControllerTest {
         post.setContent("Content");
         PostDto postDto = new PostDto(1L, "Title", "Content", new HashSet<>());
 
-        when(postService.createPost(any(PostDto.class))).thenReturn(postDto);
+        when(postService.createPost(any(Post.class))).thenReturn(postDto);
 
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/posts")
                         .content(objectMapper.writeValueAsString(post))
