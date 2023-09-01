@@ -23,4 +23,4 @@ To launch the Spring Boot application, follow these steps:
 #### Swagger UI
 For detailed API documentation and testing, you can access the Swagger UI by clicking on the following link: 
 
-https://your-app-url/swagger-ui.html
+http://localhost:8080/swagger-ui/index.html#/
