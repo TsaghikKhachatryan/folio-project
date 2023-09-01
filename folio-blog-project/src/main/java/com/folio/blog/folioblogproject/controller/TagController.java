@@ -22,8 +22,7 @@ public class TagController {
     private final TagService tagService;
 
     @PostMapping
-    public ResponseEntity<Tag> createTag(@Valid @RequestBody TagDto tagDto) {
-        Tag savedTag = tagService.saveTag(tagDto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedTag);
+    public ResponseEntity<TagDto> createTag(@Valid @RequestBody TagDto tagDto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(tagService.createTag(tagDto));
     }
 }

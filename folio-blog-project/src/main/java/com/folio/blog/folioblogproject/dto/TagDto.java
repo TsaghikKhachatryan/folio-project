@@ -1,3 +1,3 @@
 package com.folio.blog.folioblogproject.dto;
 
-public record TagDto(String name) { }
+public record TagDto(Long id, String name) { }

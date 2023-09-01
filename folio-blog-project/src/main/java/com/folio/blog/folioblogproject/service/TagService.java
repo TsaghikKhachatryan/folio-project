@@ -2,6 +2,8 @@ package com.folio.blog.folioblogproject.service;
 
 import com.folio.blog.folioblogproject.dto.TagDto;
 import com.folio.blog.folioblogproject.entity.Tag;
+import com.folio.blog.folioblogproject.mapper.PostMapper;
+import com.folio.blog.folioblogproject.mapper.TagMapper;
 import com.folio.blog.folioblogproject.repository.TagRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -19,12 +21,12 @@ import static java.util.stream.Collectors.toUnmodifiableSet;
 public class TagService{
 
     private final TagRepository tagRepository;
+    private final TagMapper mapper;
 
-    public Tag saveTag(TagDto tagDto) {
+    public TagDto createTag(TagDto tagDto) {
         log.info("Creating Tag");
-        var tag = new Tag();
-        tag.setName(tagDto.name());
-        return tagRepository.save(tag);
+        Tag tag = mapper.toEntity(tagDto);
+        return mapper.toDto(tagRepository.save(tag));
     }
 
     public Set<Tag> findTagsByIds(Set<Long> tagIds) {
