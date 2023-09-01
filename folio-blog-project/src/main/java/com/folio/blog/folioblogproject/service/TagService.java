@@ -2,12 +2,36 @@ package com.folio.blog.folioblogproject.service;
 
 import com.folio.blog.folioblogproject.dto.TagDto;
 import com.folio.blog.folioblogproject.entity.Tag;
+import com.folio.blog.folioblogproject.repository.TagRepository;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 
-public interface TagService {
+import static java.util.stream.Collectors.toUnmodifiableSet;
 
-    Tag saveTag(TagDto tagDto);
+@Slf4j
+@Service
+@Transactional
+@RequiredArgsConstructor
+public class TagService{
 
-    Set<Tag> findTagsByIds(Set<Long> tagIds);
+    private final TagRepository tagRepository;
+
+    public Tag saveTag(TagDto tagDto) {
+        log.info("Creating Tag");
+        var tag = new Tag();
+        tag.setName(tagDto.name());
+        return tagRepository.save(tag);
+    }
+
+    public Set<Tag> findTagsByIds(Set<Long> tagIds) {
+        log.info("Getting Tags by IDs: {}", tagIds);
+        return tagRepository.findAllById(tagIds)
+                .stream()
+                .collect(toUnmodifiableSet());
+    }
+
 }

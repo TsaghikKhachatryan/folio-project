@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
+
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
@@ -33,6 +35,13 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleGenericException(Exception ex, HttpStatus status) {
+        ApiError apiError =
+                new ApiError(HttpStatus.INTERNAL_SERVER_ERROR, ex.getLocalizedMessage(), ex.getMessage());
+        return ResponseEntity.status(status).body(apiError);
+    }
+
+    @ExceptionHandler(IllegalStateException.class)
+    public ResponseEntity<Object> handleIllegalState(IllegalStateException ex, HttpStatus status) {
         ApiError apiError =
                 new ApiError(HttpStatus.INTERNAL_SERVER_ERROR, ex.getLocalizedMessage(), ex.getMessage());
         return ResponseEntity.status(status).body(apiError);
