@@ -5,7 +5,7 @@ import com.folio.blog.folioblogproject.entity.Tag;
 import com.folio.blog.folioblogproject.service.TagService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/tags")
 @AllArgsConstructor
-@Slf4j
+@Log4j2
 public class TagController {
 
     private final TagService tagService;

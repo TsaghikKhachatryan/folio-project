@@ -7,7 +7,7 @@ import com.folio.blog.folioblogproject.mapper.PostMapper;
 import com.folio.blog.folioblogproject.repository.PostRepository;
 import com.folio.blog.folioblogproject.repository.pagination.Pagination;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 import java.util.Set;
 
-@Slf4j
+@Log4j2
 @Service
 @Transactional
 @RequiredArgsConstructor

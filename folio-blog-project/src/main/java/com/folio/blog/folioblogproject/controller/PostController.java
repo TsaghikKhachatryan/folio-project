@@ -8,7 +8,7 @@ import com.folio.blog.folioblogproject.service.PostService;
 import com.folio.blog.folioblogproject.service.TagService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +20,7 @@ import java.util.Set;
 @RestController
 @RequestMapping("/api/v1/posts")
 @RequiredArgsConstructor
-@Slf4j
+@Log4j2
 public class PostController {
 
     private final PostService postService;
