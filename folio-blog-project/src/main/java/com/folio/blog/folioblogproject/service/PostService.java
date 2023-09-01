@@ -25,12 +25,11 @@ public class PostService {
     private final PostRepository postRepository;
     private final PostMapper mapper;
 
-    public Pagination.PageResponse getAllPosts(Set<Tag> tags, Pageable pageable) {
+    public Pagination.PageResponse getAllPosts(Set<Long> tagIds, Pageable pageable) {
         log.info("Getting all Posts");
-
         Page<PostDto> postDtoPage;
-        if (tags != null && !tags.isEmpty()) {
-            postDtoPage = postRepository.findByTags(tags, pageable).map(mapper::toDto);
+        if (tagIds != null && !tagIds.isEmpty()) {
+            postDtoPage = postRepository.findByTags(tagIds, pageable).map(mapper::toDto);
         } else {
             postDtoPage = postRepository.findAll(pageable).map(mapper::toDto);
         }

@@ -24,15 +24,13 @@ import java.util.Set;
 public class PostController {
 
     private final PostService postService;
-    private final TagService tagService;
 
     @GetMapping
     public ResponseEntity<Pagination.PageResponse> getPosts(
             @RequestParam(required = false) Set<Long> tagIds,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {
-        Set<Tag> tags = tagService.findTagsByIds(tagIds);
-        Pagination.PageResponse posts = postService.getAllPosts(tags, PageRequest.of(page, size));
+        Pagination.PageResponse posts = postService.getAllPosts(tagIds, PageRequest.of(page, size));
         return ResponseEntity.ok(posts);
     }
 
